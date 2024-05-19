@@ -1,13 +1,8 @@
-package com.azotov.bookrental.jpa.h2.model;
+package com.azotov.bookrental.jpa.h2.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-@Entity
-public class Borrower {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class NewBorrowerDto {
 
     @NotEmpty
     private String name;
@@ -16,15 +11,6 @@ public class Borrower {
     private String email;
 
     // Getters and setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }

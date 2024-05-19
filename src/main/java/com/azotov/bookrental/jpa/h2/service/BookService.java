@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.azotov.bookrental.jpa.h2.repository.BookRepository;
 import com.azotov.bookrental.jpa.h2.model.Book;
+import com.azotov.bookrental.jpa.h2.dto.NewBookDto;
 
 
 import java.util.List;
@@ -14,8 +15,9 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public Book registerBook(Book book) {
-        return bookRepository.save(book);
+    public Book registerBook(NewBookDto book) {
+        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthor());
+        return bookRepository.save(newBook);
     }
 
     public List<Book> getAllBooks() {

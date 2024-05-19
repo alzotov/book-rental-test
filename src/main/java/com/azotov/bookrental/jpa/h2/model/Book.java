@@ -10,9 +10,11 @@ public class Book {
     private Long id;
     @Pattern(regexp = "^(?=(?:\\D*\\d){10}(?:(?:\\D*\\d){3})?$)[\\d-]+$", message="ISBN invalid")
     private String isbn;
+    @NotEmpty
     private String title;
+    @NotEmpty
     private String author;
-    private boolean isBorrowed;
+    private boolean isBorrowed = false;
 
     // Getters and setters
 
@@ -54,5 +56,12 @@ public class Book {
 
     public void setBorrowed(boolean isBorrowed) {
         this.isBorrowed = isBorrowed;
+    }
+
+    public Book(String isbn, String title, String author) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.isBorrowed = false;
     }
 }
