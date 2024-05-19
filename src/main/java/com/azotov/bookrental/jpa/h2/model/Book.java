@@ -64,4 +64,16 @@ public class Book {
         this.author = author;
         this.isBorrowed = false;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return this.author.equals(book.author) &&
+            this.title.equals(book.title) &&
+            this.isbn.equals(book.isbn);
+    }
+
+    public Book() {}
 }
